@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aesthetic Login Form</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f7f7f7;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .login-container {
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      border-radius: 8px;
+      width: 300px;
+      text-align: center;
+    }
+
+    .login-container h2 {
+      color: #333;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      margin-top: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+
+    .login-btn {
+      background-color: #4caf50;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .login-btn:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+<div class="login-container">
+  <h2>Login</h2>
+  <form id="loginForm">
+    <div class="input-group">
+      <input type="text" id="username" placeholder="Username" required>
+    </div>
+    <div class="input-group">
+      <input type="password" id="password" placeholder="Password" required>
+    </div>
+    <button type="button" class="login-btn" onclick="submitForm()">Login</button>
+  </form>
+</div>
+
+<script>
+  function submitForm() {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    // Username validation
+    if (username.length <= 8 || !username.endsWith('s')) {
+      alert('Username must be over 8 characters and end with an "s".');
+      return false;
+    }
+
+    // Password validation
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+    if (!passwordRegex.test(password)) {
+      alert('Password must have at least one uppercase letter, one lowercase letter, and one number. Minimum length is 8 characters.');
+      return false;
+    }
+
+    // Add your actual form submission logic here if validation passes
+    console.log('Username:', username);
+    console.log('Password:', password);
+
+  }
+</script>
+
+</body>
+</html>
